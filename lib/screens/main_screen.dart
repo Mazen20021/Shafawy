@@ -5,6 +5,7 @@ import 'package:shafawy/cubit/states.dart';
 import 'package:shafawy/screens/choose_subject.dart';
 import 'package:shafawy/screens/question_screen.dart';
 import '../constants/colors.dart';
+import '../constants/screen.dart';
 
 class MainScreen extends StatelessWidget
 {
@@ -15,6 +16,7 @@ class MainScreen extends StatelessWidget
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit,AppStates>(builder: (BuildContext context , states){
       AppCubit cubitParam = AppCubit.getCubit(context);
+      ScreenSize screenSize = ScreenSize();
       return Scaffold(
         backgroundColor: ConstColors.background,
         appBar: AppBar(

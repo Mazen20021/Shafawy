@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shafawy/constants/screen.dart';
 import 'package:shafawy/cubit/cubit-name.dart';
 import 'package:shafawy/cubit/states.dart';
 import 'package:shafawy/screens/main_screen.dart';
@@ -13,6 +14,7 @@ class ChooseSubject extends StatelessWidget
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit,AppStates>(builder: (BuildContext context , states){
       AppCubit cubitParam = AppCubit.getCubit(context);
+      ScreenSize screenSize = ScreenSize();
       return Scaffold(
           backgroundColor: ConstColors.background,
           body: Center(

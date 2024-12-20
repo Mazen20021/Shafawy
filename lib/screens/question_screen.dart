@@ -6,6 +6,7 @@ import 'package:shafawy/cubit/cubit-name.dart';
 import 'package:shafawy/cubit/states.dart';
 import 'package:shafawy/screens/main_screen.dart';
 import '../constants/colors.dart';
+import '../constants/screen.dart';
 
 class QuestionScreen extends StatelessWidget
 {
@@ -18,6 +19,7 @@ class QuestionScreen extends StatelessWidget
     randomNumber = random.nextInt(3);
     return BlocConsumer<AppCubit,AppStates>(builder: (BuildContext context , states){
       AppCubit cubitParam = AppCubit.getCubit(context);
+      ScreenSize screenSize = ScreenSize();
       cubitParam.startTimer();
       return Scaffold(
         backgroundColor: ConstColors.background,
