@@ -16,7 +16,7 @@ class QuestionScreen extends StatelessWidget
   int randomNumber = 0;
   @override
   Widget build(BuildContext context) {
-    randomNumber = random.nextInt(3);
+    randomNumber = random.nextInt(100);
     return BlocConsumer<AppCubit,AppStates>(builder: (BuildContext context , states){
       AppCubit cubitParam = AppCubit.getCubit(context);
       ScreenSize screenSize = ScreenSize();
@@ -32,10 +32,13 @@ class QuestionScreen extends StatelessWidget
             children: [
               Text(cubitParam.time.toString(), style: const TextStyle(fontSize: 30)),
               const SizedBox(width: 10),
-              const Text("الوقت المتبقي على انتهاء مدة السؤال" , style: TextStyle(fontSize: 30),)
+              const Text("الوقت المتبقي على انتهاء مدة السؤال" , style: TextStyle(fontSize: 25),)
             ],)),
         ),
-        body: Center(child: Text(cubitParam.questions[randomNumber].toString(),style: TextStyle(color: ConstColors.iconColor,fontSize: 50),),),
+        body: Center(child: Text(cubitParam.questions[randomNumber].toString(),
+          textAlign: TextAlign.center,
+          textDirection: TextDirection.rtl,
+          style: TextStyle(color: ConstColors.iconColor,fontSize: 35),),),
       );
     }, listener: (BuildContext context , states){
       if(states is Finished && !AppCubit.getCubit(context).hasNavigated)
